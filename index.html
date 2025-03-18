@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokéPlay - Play Pokémon Online</title>
+    <link rel="stylesheet" href="static/css/index.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="assets/pokeball.jpeg" alt="PokéPlay Logo" class="logo-img" />
+            </a>
+        </div>
+        PokéPlay
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to <span>PokéPlay!</span></h1>
+            <p>Play your favorite Pokémon games online anytime!</p>
+            <a href="#games" class="btn">Start Playing</a>
+        </div>
+    </section>
+
+    <section class="screen">
+        <div id="upload" class="upload">
+            <div class="container">
+                <h2>🎮 Upload Your Pokémon Game</h2>
+                <p>Upload a legally owned Pokémon ROM (.gba) to start playing!</p>
+                <input type="file" id="uploadRom" accept=".gba" />
+                <canvas id="emulator" class="emulator-container"></canvas>
+                <div class="controls">
+                    <button onclick="saveGame()">Save Game</button>
+                    <select id="saveStateList" class="save-state-list">
+                        <option value="" disabled selected>-- Select Save State --</option>
+                    </select>
+                    <button onclick="loadGameState()">Load Selected State</button>
+                    <!-- Pause/Reset Buttons -->
+                        <button id="resumeGameBtn" onclick="togglePause()">Pause/Resume</button>
+                    
+                </div>
+                <div class="progress">
+                    <p>Total Playtime: <span id="playtime">00:00:00</span></p>
+                </div>
+
+                <!-- FPS Counter -->
+                <div id="fpsDisplay">FPS: N/A</div>
+
+                <!-- Audio Toggle -->
+                <div class= "controls">
+                    <label>
+                        Audio:
+                        <button id="audio-toggle" onclick = "toggleAudio()">Mute/Sound</button>
+                    </label>
+                </div>
+
+                <!-- Speed Control -->
+                <div class="action-buttons controls">
+                        <label>
+                        Speed:
+                        <button id="speed-control" onclick = "updateSpeed()">Speed Up/Down</button>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="mapper" class="mapper">
+            <div id="config-console" class="config-console">
+                <h3>🎯 Configure Controls</h3>
+
+                <div class="console-wrapper">
+
+                    <img src="/assets/mod_console.png" alt="GameBoy Console" class="console-img">
+                    <!-- D-Pad -->
+                    <select id="key-up" class="key-binding d-pad-up"></select>
+                    <select id="key-down" class="key-binding d-pad-down"></select>
+                    <select id="key-left" class="key-binding d-pad-left"></select>
+                    <select id="key-right" class="key-binding d-pad-right"></select>
+
+                    <!-- A, B -->
+                    <select id="key-a" class="key-binding button-a"></select>
+                    <select id="key-b" class="key-binding button-b"></select>
+
+                    <!-- Start, Select -->
+                    <select id="key-start" class="key-binding button-start"></select>
+                    <select id="key-select" class="key-binding button-select"></select>
+
+                    <!-- L, R -->
+                    <select id="key-l" class="key-binding button-l"></select>
+                    <select id="key-r" class="key-binding button-r"></select>
+
+                </div>
+
+                <div class="action-buttons controls">
+                    <button onclick="saveKeyBindings()"class = "save">Save Controls</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="games" class="games">
+        <div class="container">
+            <h2 class="section-title">🔥 Featured Pokémon Games</h2>
+            <div class="games-container">
+                <div class="game-card" onclick="loadPresetGame('games/mega-emerald-x-y.gba')">
+                    <img src="assets/pokemon_x_and_y.png" alt="Pokémon X & Y" />
+                    <h3>Pokémon X & Y</h3>
+                    <p>Relive the classic adventure and catch 'em all!</p>
+                </div>
+                <div class="game-card" onclick="loadPresetGame('games/sun-moon-firered-b1.5.gba')">
+                    <img src="assets/pokemon_sun_and_moon.png" alt="Pokémon Sun and Moon" />
+                    <h3>Pokémon Sun and Moon</h3>
+                    <p>Return to the Hoenn region for an epic battle!</p>
+                </div>
+                <div class="game-card" onclick="loadPresetGame('games/flora-sky-cd-completed.gba')">
+                    <img src="assets/pokemon_flora_sky.png" alt="Pokémon Flora Sky" />
+                    <h3>Pokémon Flora Sky</h3>
+                    <p>Return to the Hoenn region for an epic battle!</p>
+                </div>
+                <div class="game-card" onclick="loadPresetGame('games/radical-red-v2.1.gba')">
+                    <img src="assets/pokemon_radical_red.png" alt="Pokémon Radical Red" />
+                    <h3>Pokémon Radical Red</h3>
+                    <p>Return to the Hoenn region for an epic battle!</p>
+                </div>
+                <div class="game-card" onclick="loadPresetGame('games/dark-rising-order-destroyed-completed.gba')">
+                    <img src="assets/pokemon_dark_rising.png" alt="Pokémon Dark Rising" />
+                    <h3>Pokémon Dark Rising</h3>
+                    <p>Return to the Hoenn region for an epic battle!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="notification-container"></div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PokéPlay. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Include our emulator logic -->
+    <script src="static/js/index.js"></script>
+    <!-- Include GBA.js scripts -->
+    <script src="gbajs-master/js/util.js"></script>
+    <script src="gbajs-master/js/core.js"></script>
+    <script src="gbajs-master/js/arm.js"></script>
+    <script src="gbajs-master/js/thumb.js"></script>
+    <script src="gbajs-master/js/mmu.js"></script>
+    <script src="gbajs-master/js/io.js"></script>
+    <script src="gbajs-master/js/audio.js"></script>
+    <script src="gbajs-master/js/video.js"></script>
+    <script src="gbajs-master/js/video/proxy.js"></script>
+    <script src="gbajs-master/js/video/software.js"></script>
+    <script src="gbajs-master/js/irq.js"></script>
+    <script src="gbajs-master/js/keypad.js"></script>
+    <script src="gbajs-master/js/sio.js"></script>
+    <script src="gbajs-master/js/savedata.js"></script>
+    <script src="gbajs-master/js/gpio.js"></script>
+    <script src="gbajs-master/js/gba.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,435 @@
+/* Global Styling */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    background: url('../../assets/upper_bg.png')  center/cover ;
+    /* background-color: #ff4141; */
+    padding: 1rem;
+    color: rgb(248, 6, 6);
+    text-align: center;
+    font-size: 3rem;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    font-size: 2.2rem;
+    transition: color 0.3s ease;
+}
+
+.header a:hover {
+    color: #ffcc00;
+}
+
+.header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* Hero Section */
+.hero {
+    background: url('../../assets/poke_bg.png') center ;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    color: #ffcc00;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    background: #ffcc00;
+    padding: 12px 24px;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 12px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #ff4141;
+    transform: translateY(-2px);
+}
+
+/* Upload Section */
+.upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.upload .container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[type='file'] {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Emulator Styling */
+
+
+/* Make the canvas keep a 3:2 aspect ratio (GBA's native ratio) */
+.emulator-container {
+    width: 100%;
+    max-width: 680px;
+    height: 320px;
+    background-color: #000;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+/* Controls */
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.controls button:hover {
+    background-color: #ff4141;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.controls button:active {
+    background-color: #3e8e41;
+}
+
+/* Games Section */
+.games {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.games .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.games-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 220px;
+    cursor: pointer;
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+}
+
+.game-card h3,
+.game-card p {
+    padding: 0.8rem;
+    text-align: center;
+    color: #333;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ff4141;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .emulator-container {
+        height: 300px;
+    }
+
+    .game-card {
+        width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    .emulator-container {
+        height: 250px;
+    }
+
+    .game-card {
+        width: 160px;
+    }
+}
+
+/* Key Configuration Console */
+.config-console {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.console-wrapper {
+    position: relative;
+    width: 500px; /* Match the image size */
+    height: 300px;
+    margin: 20px auto;
+}
+
+.console-img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.console-container {
+    position: relative;
+    width: 600px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+
+/* Key Bindings (Positioning based on GameBoy layout) */
+.key-binding {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 10;
+}
+
+
+/* D-Pad */
+.d-pad-up { top: 10%; left: 1%; }
+.d-pad-down { top: 80%; left: 1%; }
+.d-pad-left { top: 45%; left: 1%; }
+.d-pad-right { top: 3%; left: 40%; }
+
+/* A and B buttons */
+.button-a { top: 20%; right: 1%; }
+.button-b { top: 65%; right: 2%; }
+
+/* Start and Select buttons */
+.button-start { bottom: 5%; left: 65%; transform: translateX(-50%); }
+.button-select { bottom: 5%; left: 38%; transform: translateX(-50%); }
+
+/* Shoulder buttons */
+.button-l { top: 0%; right: 10%; }
+.button-r { top: 10%; right: 10%; }
+
+@media (max-width: 480px) {
+    .key-binding {
+        width: 40px;
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .console-container {
+        max-width: 250px;
+    }
+}
+
+
+.mapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.mapper .container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+#notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 9999;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    background-color: #ffcc01;
+    color: #3b4cca;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.5s forwards, fadeOut 4s forwards 3s;
+}
+
+.notification img {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+
+#audio-toggle {
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.save-state-list {
+    width: 100%; 
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    font-size: 16px;
+    cursor: pointer;
+}
