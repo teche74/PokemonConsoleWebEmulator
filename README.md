@@ -3,6 +3,8 @@ PokémonWebConsoleEmulator
 
 Welcome to PokémonWebConsoleEmulator – a web-based GameBoy Advance emulator that lets you play your favorite Pokémon games directly in your browser without any downloads. Relive your childhood adventures and experience a console emulator that you helped create!
 
+![image](https://github.com/user-attachments/assets/a2e2ff12-62d1-43e7-965d-7a36f98fc193)
+
 --------------------------
 Table of Contents
 --------------------------
@@ -35,6 +37,8 @@ This project is a labor of love—a tribute to the magical gaming experiences of
 - Responsive Fullscreen Mode: Double-click the emulator screen to toggle an immersive full-screen mode.
 - Real-Time Performance Metrics: Monitor FPS, toggle audio, and adjust game speed on the fly.
 - Nostalgic Experience: Relive your childhood memories while exploring modern web technologies.
+
+![image](https://github.com/user-attachments/assets/2c6e2df0-5554-451e-aa71-5b7db6e42984)
 
 --------------------------
 3. Getting Started
@@ -74,6 +78,8 @@ Installation:
 - Fullscreen Mode:
   Double-click the emulator screen to toggle fullscreen for an enhanced gaming experience.
 
+
+
 --------------------------
 5. Customization
 --------------------------
@@ -83,29 +89,7 @@ This project is built with modern web technologies and is fully customizable:
 - Emulator Core: The project leverages gba.js for GameBoy Advance emulation. Feel free to explore the code to tweak performance or add new features.
 
 --------------------------
-6. Contributing
---------------------------
-Contributions are welcome! If you have ideas for improvements, bug fixes, or new features, please follow these steps:
-1. Fork the repository.
-2. Create your feature branch:
-   git checkout -b feature/amazing-feature
-3. Commit your changes:
-   git commit -m "Add some amazing feature"
-4. Push your branch:
-   git push origin feature/amazing-feature
-5. Open a Pull Request.
 
---------------------------
-7. License
---------------------------
-This project is provided for educational and personal use only. Please ensure you own a legally acquired Pokémon ROM before playing. See the LICENSE file for more details.
-
---------------------------
-8. Acknowledgements
---------------------------
-- gba.js: Thanks to the developers of gba.js for providing the foundation of this emulator.
-- Pokémon Fans: For keeping the spirit of nostalgia alive.
-- Open-Source Community: Your collaboration and support inspire projects like this one.
 
 --------------------------
 Enjoy your nostalgic journey with PokémonWebConsoleEmulator!
